@@ -1,0 +1,30 @@
+﻿@model List<Client>
+
+@{
+    ViewData["Title"] = "Clients";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var client in Model)
+                {
+                    <tr>
+                        <th scope="row"><a asp-controller="Home" asp-action="ProductClients" asp-route-id="@client.Id">@client.Id</a></th>
+                        <td>@client.FirstName</td>
+                        <td>@client.LastName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

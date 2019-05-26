@@ -1,0 +1,33 @@
+﻿@model List<ClientProduct>
+
+@{
+    ViewData["Title"] = "Products of Client";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Client: @Model.FirstOrDefault()?.Client.FirstName @Model.FirstOrDefault()?.Client.LastName</h3>
+    </div>
+    <div class="col-lg-12">
+        <p>List of Products</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var clientProduct in Model)
+            {
+                <tr>
+                    <td>@clientProduct.Product.Name</td>
+                    <td>@clientProduct.Product.Price</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
